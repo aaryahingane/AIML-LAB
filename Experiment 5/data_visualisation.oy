@@ -1,0 +1,64 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Create dataset
+data = {
+    "Name": ["Amit", "Riya", "Neha", "Raj", "Om", "Sara"],
+    "Marks": [80, 90, 70, 85, 75, 95],
+    "Age": [20, 21, 20, 22, 21, 20]
+}
+
+# Convert into DataFrame
+df = pd.DataFrame(data)
+
+# Display dataset
+print("Student Dataset")
+print(df)
+
+# Display first five rows
+print("\nFirst Five Rows")
+print(df.head())
+
+# Display dataset information
+print("\nDataset Information")
+print(df.info())
+
+# Statistical summary
+print("\nStatistical Summary")
+print(df.describe())
+
+# Calculate average marks
+print("\nAverage Marks:", df["Marks"].mean())
+
+# -------------------------
+# Matplotlib Bar Graph
+# -------------------------
+plt.bar(df["Name"], df["Marks"])
+plt.title("Student Marks")
+plt.xlabel("Student Name")
+plt.ylabel("Marks")
+plt.show()
+
+# -------------------------
+# Matplotlib Line Graph
+# -------------------------
+plt.plot(df["Name"], df["Marks"], marker="o")
+plt.title("Marks Line Graph")
+plt.xlabel("Student Name")
+plt.ylabel("Marks")
+plt.show()
+
+# -------------------------
+# Seaborn Bar Graph
+# -------------------------
+sns.barplot(x="Name", y="Marks", data=df)
+plt.title("Student Marks using Seaborn")
+plt.show()
+
+# -------------------------
+# Seaborn Histogram
+# -------------------------
+sns.histplot(data=df, x="Marks", bins=5)
+plt.title("Marks Distribution")
+plt.show()
